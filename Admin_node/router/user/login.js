@@ -3,6 +3,7 @@ const login = new Router();
 const bodyParser = require('koa-bodyparser')
 const db = require('../../utils/db')
 const jwt = require('jsonwebtoken')
+const secret = '113Bsadsaddsdvcvongxcvmas'
 login.use(bodyParser());
 //登录接口，获取token
 login.post('/', async (ctx) => {
@@ -22,27 +23,29 @@ login.post('/', async (ctx) => {
   if (result) {
      if(result[0].password == password)
      {
-          const token = jwt.sign({ account, password }, 'secret', { expiresIn: 3600 })
-          const insertsql = `UPDATE users SET token = '${token}' where account = '${account}' and password = '${password}'`
-          db.query(insertsql,(err,data) =>{
-              if(err) throw err;
-              if(data){
-                  ctx.body={
-                      data
-                  }
-              }
-          })
+          let payload = {password:password.userNumber,time:new Date().getTime(),timeout:1000*60*60*2}
+          let token = jwt.sign(payload, secret);
+        //   let token = jwt.sign({ account, password }, 'secret', { expiresIn: 3600 })
+        //   let insertsql = `UPDATE users SET token = '${token}' where account = '${account}' and password = '${password}'`
+        //   db.query(insertsql,(err,data) =>{
+        //       if(err) throw err;
+        //       if(data){
+        //           ctx.body={
+        //               data
+        //           }
+        //       }
+        //   })
           ctx.body = {
           token:token,
           msg:'success',
-          account:account
+          status:200
        }
      }
      else
      {
         ctx.body = {
             msg:'密码错误',
-            account:account
+            status:500
         }
      }
     }
