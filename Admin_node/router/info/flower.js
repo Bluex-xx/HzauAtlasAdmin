@@ -1,8 +1,8 @@
 const Router = require('koa-router');
 const flower = new Router();
 const db = require('../../utils/db');
-const bodyParser = require('koa-bodyparser');
-flower.use(bodyParser());
+const KoaBody = require('koa-body');
+flower.use(KoaBody());
 //获取所有的花花，及其图片
 flower.post('/all', async (ctx) => {
     let sql = `SELECT * FROM flower`

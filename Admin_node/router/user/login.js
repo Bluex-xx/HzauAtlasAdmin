@@ -1,10 +1,10 @@
 const Router = require('koa-router');
 const login = new Router();
-const bodyParser = require('koa-bodyparser')
+const KoaBody = require('koa-body')
 const db = require('../../utils/db')
 const jwt = require('jsonwebtoken')
 const secret = '113Bsadsaddsdvcvongxcvmas'
-login.use(bodyParser());
+login.use(KoaBody());
 //登录接口，获取token
 login.post('/', async (ctx) => {
    let account = ctx.request.body.account;

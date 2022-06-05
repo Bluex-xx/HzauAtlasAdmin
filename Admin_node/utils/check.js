@@ -5,7 +5,7 @@ const secret = '113Bsadsaddsdvcvongxcvmas'//加密混淆
 async function check(ctx, next) {
   let url = ctx.request.url;
   // 登录 不用检查
-  if (url == "/login") await next();
+  if (url == "/login" || url == "/uploads" || url == "/") await next();
   else {
       // 规定token写在header 的 'autohrization' 
     let token = ctx.request.headers["authorization"];

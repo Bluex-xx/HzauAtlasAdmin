@@ -1,8 +1,8 @@
 const Router = require('koa-router');
 const cat = new Router();
 const db = require('../../utils/db');
-const bodyParser = require('koa-bodyparser');
-cat.use(bodyParser());
+const KoaBody = require('koa-body');
+cat.use(KoaBody());
 //获取所有的猫咪，及其图片
 cat.post('/all', async (ctx) => {
     let sql = `SELECT * FROM cat`

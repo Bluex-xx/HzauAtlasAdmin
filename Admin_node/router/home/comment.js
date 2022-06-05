@@ -1,8 +1,8 @@
 const Router = require('koa-router');
 const comment = new Router();
 const db = require('../../utils/db')
-const bodyParser = require('koa-bodyparser')
-comment.use(bodyParser());
+const KoaBody = require('koa-body')
+comment.use(KoaBody());
 //获取所有评论
 comment.post('/all',async (ctx)=>{
     let sql = `SELECT * FROM comment`
