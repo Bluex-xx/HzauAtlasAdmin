@@ -18,7 +18,7 @@
             v-model:value="user.account"
             placeholder="Account"
             maxlength="20"
-            style="padding:0.6vw 10px;border-radius: 0.5vw;"
+            style="padding: 0.6vw 10px; border-radius: 0.5vw"
           />
         </div>
         <div class="Login_input">
@@ -26,7 +26,7 @@
             v-model:value="user.password"
             placeholder="Password"
             maxlength="20"
-            style="padding:0.6vw 10px;border-radius: 0.5vw;"
+            style="padding: 0.6vw 10px; border-radius: 0.5vw"
           />
         </div>
         <div class="Login_button" @click="login">Login</div>
@@ -36,23 +36,28 @@
 </template>
 
 <script>
-import { reactive } from "vue";
 import api from "../network/api";
+import { reactive } from "@vue/reactivity";
+import { onMounted } from '@vue/runtime-core';
 export default {
   setup() {
-    const user = reactive({
+    let user = reactive({
       account: "",
       password: "",
     });
     const login = async () => {
       let res = await api.login(user);
-      if (res.msg === "success") {
+      if (res.data.msg === "success") {
         alert("登录成功");
         localStorage.setItem("token", res.token);
       } else {
-        alert(res.msg);
+        alert(res.data.msg);
       }
     };
+    onMounted(async () => {
+        let demo = await api.demo();
+        user.demo = demo.data;
+    });
     return {
       user,
       login,
@@ -115,7 +120,7 @@ export default {
   color: #ffffff;
   text-align: center;
   font-size: 20px;
-  border-radius: 0.5vw; 
+  border-radius: 0.5vw;
 }
 .Login_button:hover {
   background: #e18d8db0;

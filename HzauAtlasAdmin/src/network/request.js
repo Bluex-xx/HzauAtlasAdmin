@@ -2,11 +2,11 @@ import axios from 'axios'
 import router from '../router/main'
 export default function request(config) {
   const instance = axios.create({
-    baseURL: 'http://localhost:9000',
+    baseURL: 'http://api.codexx.cc:9000',
     timeout: 20000,
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
-      'token': localStorage.getItem('token')
+      'authorization': localStorage.getItem('token')
     },
     method:'POST'
   })

@@ -19,6 +19,6 @@ upload.use(KoaBody({
   ));
 upload.post('/', ctx => {
   ctx.body = { url: `${ctx.origin}/uploads/${filename}` };
-
+  
 })
 module.exports = upload;

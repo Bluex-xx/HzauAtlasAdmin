@@ -6,7 +6,6 @@ const cors = require('koa2-cors');
 const check = require('./utils/check');
 const errorHandler = require('./utils/errorHandler.js');
 const KoaStatic = require('koa-static');
-const KoaBody = require('koa-body');
 var path = require('path');
 app.use(cors());
 //统一404管理
