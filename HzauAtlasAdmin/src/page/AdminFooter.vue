@@ -1,6 +1,6 @@
 <template>
     <div class="footer_content">
-        狮山图鉴
+        狮山图鉴 2022
     </div>
 </template>
 
@@ -18,5 +18,7 @@ export default {
     justify-content: center;
     align-items: center;
     background: #ffffff;
+    color: grey;
+    font-size: 15px;
 }
 </style>

@@ -38,26 +38,24 @@
 <script>
 import api from "../network/api";
 import { reactive } from "@vue/reactivity";
-import { onMounted } from '@vue/runtime-core';
+import {  useRouter } from "vue-router";
 export default {
   setup() {
     let user = reactive({
       account: "",
       password: "",
     });
+    const router = useRouter();
     const login = async () => {
       let res = await api.login(user);
       if (res.data.msg === "success") {
         alert("登录成功");
-        localStorage.setItem("token", res.token);
+        localStorage.setItem("token", res.data.token);
+        router.push('/index');
       } else {
         alert(res.data.msg);
       }
     };
-    onMounted(async () => {
-        let demo = await api.demo();
-        user.demo = demo.data;
-    });
     return {
       user,
       login,
@@ -66,7 +64,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .login_content {
   width: 100%;
   height: 100%;

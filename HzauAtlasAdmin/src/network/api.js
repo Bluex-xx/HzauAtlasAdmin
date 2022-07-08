@@ -1,5 +1,4 @@
 import request from '../network/request'
-console.log(request)
 //返回值为promise对象，需要异步接收转为普通对象
 const api = {
     demo(){
@@ -15,10 +14,9 @@ const api = {
        })   
     },
     //小程序统计接口 
-    statistics(data){
+    statistics(){
         return request({
-            url:'/statistics/all',
-            data:data
+            url:'/statistics/all'
         })
     },
     //获取所有评论
