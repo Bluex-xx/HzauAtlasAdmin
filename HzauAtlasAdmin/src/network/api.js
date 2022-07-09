@@ -29,7 +29,7 @@ const api = {
     deleteComment(data){
         return request({
             url:'/comment/delete',
-            data:data
+            data:{id:data}
         })
     },
     //获取所有猫咪信息及其图片

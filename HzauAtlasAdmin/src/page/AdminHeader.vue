@@ -6,9 +6,11 @@
         <div class="head_title">
             狮山图鉴
         </div>
+        <router-link to='/index'>
         <div class="tip_icon">
             <img class="tip_icon" src="../assets/icon/tips.png">
         </div>
+        </router-link>
     </div>
 </template>
 
@@ -41,9 +43,9 @@ export default {
 }
 .tip_icon
 {
-    width: 2.6vw;
-    height: 2.6vw;
-    margin-left: 41.3vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-left: 42.3vw;
 
 }
 </style>

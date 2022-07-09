@@ -1,6 +1,6 @@
 <template>
     <div class="footer_content">
-        狮山图鉴 2022
+        HzauAtlas_Admin&nbsp;&nbsp;@2022
     </div>
 </template>
 
@@ -12,13 +12,15 @@ export default {
 
 <style>
 .footer_content {
-    width: 100%;
-    height: 10vh;
+    width: 100vw;
+    height: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ffffff;
+    background: #3b3b3b;
     color: grey;
-    font-size: 15px;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
 }
 </style>

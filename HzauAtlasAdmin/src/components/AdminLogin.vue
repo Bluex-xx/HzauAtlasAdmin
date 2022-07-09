@@ -41,11 +41,17 @@ import { reactive } from "@vue/reactivity";
 import {  useRouter } from "vue-router";
 export default {
   setup() {
+    const router = useRouter();
     let user = reactive({
       account: "",
       password: "",
     });
-    const router = useRouter();
+    let token = localStorage.getItem('token');
+    if(token)
+    {
+      alert('已登录')
+      router.push('/index');
+    }
     const login = async () => {
       let res = await api.login(user);
       if (res.data.msg === "success") {
