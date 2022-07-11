@@ -22,5 +22,6 @@ export default {
     font-size: 16px;
     position: fixed;
     bottom: 0;
+    z-index: 9999999;
 }
 </style>

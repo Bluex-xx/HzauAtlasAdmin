@@ -1,10 +1,17 @@
 import request from '../network/request'
 //返回值为promise对象，需要异步接收转为普通对象
 const api = {
-    demo(){
+    //获取所有照片
+    getAllPhotos(){
         return request({
-            url: '/cat/all'
+            url: '/photo'
         })  
+    },
+    //获取所有用户
+    getAllUsers(){
+         return request({
+            url:'/user'
+         })
     },
     //管理员登录接口
     login(data){
@@ -63,7 +70,7 @@ const api = {
     deleteCatPhoto(data){
         return request({
             url:'/cat/deletePhoto',
-            data:data
+            data:{pid:data}
         })
     },
     //添加猫咪照片

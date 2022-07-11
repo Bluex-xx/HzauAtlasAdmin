@@ -49,7 +49,6 @@ export default {
     let token = localStorage.getItem('token');
     if(token)
     {
-      alert('已登录')
       router.push('/index');
     }
     const login = async () => {
