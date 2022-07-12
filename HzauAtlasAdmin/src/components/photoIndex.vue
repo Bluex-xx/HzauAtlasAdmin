@@ -2,19 +2,22 @@
   <AdminHeader />
   <div class="title">Photo Manage</div>
   <div v-if="!dataState">
-    <img src="../assets/loading.gif" class="loading">
+    <img src="../assets/loading.gif" class="loading" />
   </div>
   <div v-if="dataState">
-  <div class="photo_content">
-    <div class="photo_list">
-      <div v-for="(i, index) in photo.data.data" :key="index" class="photos">
-        <img :src="i.store" class="photo_one" />
-        <div class="delete" @click="deletePhoto(i.pid, index)">
-          <img src="../assets/icon/delete.png" class="delete_icon" />
+    <div class="photo_content">
+      <div class="photo_list">
+        <div v-for="(i, index) in photo.data.data" :key="index" class="photos">
+          <div class="photo_one">
+            <a-image :src="i.store" width="10vw" height="10vw" style="object-fit:cover ;"/>
+          </div>
+
+          <div class="delete" @click="deletePhoto(i.pid, index)">
+            <img src="../assets/icon/delete.png" class="delete_icon" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <AdminFooter />
 </template>
@@ -22,11 +25,11 @@
 import AdminHeader from "@/page/AdminHeader.vue";
 import AdminFooter from "@/page/AdminFooter.vue";
 import api from "../network/api";
-import { reactive,ref } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 export default {
   setup() {
-    let dataState = ref(false)
+    let dataState = ref(false);
     let res = api.getAllPhotos();
     let photo = reactive({});
     const router = useRouter();
@@ -52,23 +55,19 @@ export default {
               );
             }
           }
-        }
-        else if(res.data.message == "token 已过期")
-        {
-            localStorage.clear('token');
-            alert('登陆过期，请重新登录');
-            router.push("/");
-        }
-        else
-        {
-            alert('删除失败')
+        } else if (res.data.message == "token 已过期") {
+          localStorage.clear("token");
+          alert("登陆过期，请重新登录");
+          router.push("/");
+        } else {
+          alert("删除失败");
         }
       }
     };
     return {
       photo,
       deletePhoto,
-      dataState
+      dataState,
     };
   },
   components: {
@@ -133,12 +132,11 @@ export default {
   color: grey;
   font-weight: 300;
 }
-.loading
-{
-    width: 10vw;
-    height: 10vw;
-    position: absolute;
-    left: 45vw;
-    top: 20vw;
+.loading {
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  left: 45vw;
+  top: 20vw;
 }
 </style>

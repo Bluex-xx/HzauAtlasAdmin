@@ -6,7 +6,7 @@
 </div>
 <div v-if="dataState" class="user_content">
      <div class="user_list">
-        <div v-for="(i,index) in user.data.data" :key="index" class="user_one">
+        <div v-for="(i,index) in user.data" :key="index" class="user_one">
              <img :src="i.profile_photo" class="user_pic">
              <div class="user_name">
                 {{i.name}}
@@ -38,7 +38,7 @@ export default{
             }
             else
             {
-                user.data = response.data;
+                user.data = response.data.data;
             }
         })
         return{
