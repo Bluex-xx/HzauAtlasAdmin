@@ -1,9 +1,11 @@
 <template>
-
+{{xx}}
 </template>
 <script>
-setup(props) {
-    
+export default{
+    setup(xx){
+        console.log(xx)
+    }
 }
 </script>
 <style scoped>

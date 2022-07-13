@@ -18,8 +18,9 @@
         </div>
       </div>
     </div>
+     <AdminFooter />
   </div>
-  <AdminFooter />
+
 </template>
 <script>
 import AdminHeader from "@/page/AdminHeader.vue";
