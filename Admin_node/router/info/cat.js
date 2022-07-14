@@ -29,7 +29,7 @@ cat.post('/all', async (ctx) => {
 //添加猫咪
 cat.post('/add', async (ctx) => {
     let cat_info = ctx.request.body;
-    let sql = `INSERT INTO cat (name,color,place,character1) VALUES ('${cat_info.name}','${cat_info.color}','${cat_info.place}','${cat_info.character1}')`
+    let sql = `INSERT INTO cat (name,color,place,character1,cid) VALUES ('${cat_info.name}','${cat_info.color}','${cat_info.place}','${cat_info.character1}','${cat_info.cid}')`
     let result = await new Promise((resolve) => {
         db.query(sql, (err, data) => {
             if (err) throw err;
