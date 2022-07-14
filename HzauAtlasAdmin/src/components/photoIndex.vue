@@ -18,13 +18,12 @@
         </div>
       </div>
     </div>
-     <AdminFooter />
   </div>
-
+  <a-back-top />
+  <strong style="color: rgba(64, 64, 64, 0.6)"></strong>
 </template>
 <script>
 import AdminHeader from "@/page/AdminHeader.vue";
-import AdminFooter from "@/page/AdminFooter.vue";
 import api from "../network/api";
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -73,7 +72,6 @@ export default {
   },
   components: {
     AdminHeader,
-    AdminFooter,
   },
 };
 </script>

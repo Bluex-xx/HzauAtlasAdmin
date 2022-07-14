@@ -1,48 +1,50 @@
 <template>
   <AdminHeader />
+  <div class="title">Comment Manage</div>
   <div v-if="!dataState">
-    <img src="../assets/loading.gif" class="loading">
+    <img src="../assets/loading.gif" class="loading" />
   </div>
   <div v-if="dataState">
-  <div class="title">Comment Manage</div>
-  <div class="comment_content">
-    <div class="comment_list">
-      <div
-        v-for="(i, index) in comment.data.data"
-        :key="index"
-        class="comment_one"
-      >
-        <div>
-          <img :src="i.user.profile_photo" class="user_pic" />
-        </div>
-        <div class="name">
-          {{ i.user.name }}
-        </div>
-        <div>
-          <img
-            @click="deleteComment(i.id, index)"
-            class="delete"
-            src="../assets/icon/delete.png"
-          />
-        </div>
-        <div class="comment_value">
-          {{ i.content }}
+    <div class="comment_content">
+      <div class="comment_list">
+        <div
+          v-for="(i, index) in comment.data.data"
+          :key="index"
+          class="comment_one"
+        >
+          <div>
+            <img :src="i.user.profile_photo" class="user_pic" />
+          </div>
+          <div class="name">
+            {{ i.user.name }}
+          </div>
+          <div>
+            <img
+              @click="deleteComment(i.id, index)"
+              class="delete"
+              src="../assets/icon/delete.png"
+            />
+          </div>
+          <div class="comment_value">
+            {{ i.content }}
+          </div>
         </div>
       </div>
     </div>
+
   </div>
-  </div>
-  <AdminFooter />
+  <a-back-top />
+  <strong style="color: rgba(64, 64, 64, 0.6)"></strong>
 </template>
 <script>
 import AdminHeader from "@/page/AdminHeader.vue";
-import AdminFooter from "@/page/AdminFooter.vue";
-import { reactive,ref } from "vue";
+
+import { reactive, ref } from "vue";
 import api from "../network/api";
 import { useRouter } from "vue-router";
 export default {
   setup() {
-    let dataState = ref(false)
+    let dataState = ref(false);
     let router = useRouter();
     //获取评论数据
     let comment = reactive({});
@@ -76,12 +78,12 @@ export default {
     return {
       comment,
       deleteComment,
-      dataState
+      dataState,
     };
   },
   components: {
     AdminHeader,
-    AdminFooter,
+
   },
 };
 </script>
@@ -150,12 +152,11 @@ export default {
   right: 1vw;
   top: 3vw;
 }
-.loading
-{
-    width: 10vw;
-    height: 10vw;
-    position: absolute;
-    left: 45vw;
-    top: 20vw;
+.loading {
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  left: 45vw;
+  top: 20vw;
 }
 </style>

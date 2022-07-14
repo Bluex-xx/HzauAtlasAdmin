@@ -14,8 +14,9 @@
         <div class="number">猫咪:{{ statistics.sum.cat_num }}</div>
       </div>
       </router-link>
-      <router-link to="/flowers">
-      <div class="sum_one">
+      <!-- 后续路由改为flowers，目前懒得写 -->
+      <router-link to="/index">
+      <div  class="sum_one">
         <img src="../assets/icon/flower.png" class="icon" />
         <div class="number">花朵:{{ statistics.sum.flower_num }}</div>
       </div>
@@ -38,7 +39,7 @@
         <div class="number">评论:{{ statistics.sum.comment_num }}</div>
       </div>
       </router-link>
-      <router-link to="/about">
+      <router-link to="/index">
       <div class="sum_one">
         <img src="../assets/icon/about.png" class="icon" />
         <div class="number">About</div>
@@ -46,8 +47,9 @@
       </router-link>
     </div>
   </div>
+    <AdminFooter/>
   </div>
-  <AdminFooter/>
+
 </template>
 
 <script>

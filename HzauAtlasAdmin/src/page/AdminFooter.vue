@@ -8,7 +8,7 @@ export default {};
 
 <style>
 .footer_content {
-  width: 100vw;
+  width: 100%;
   height: 6vh;
   display: flex;
   justify-content: center;
@@ -17,5 +17,7 @@ export default {};
   color: grey;
   font-size: 16px;
   margin-top: 3vw;
+  position: fixed;
+  bottom: 0;
 }
 </style>

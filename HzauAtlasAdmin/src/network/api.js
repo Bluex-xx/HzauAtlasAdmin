@@ -56,7 +56,9 @@ const api = {
     deleteCat(data){
         return request({
             url:'/cat/delete',
-            data:data
+            data:{
+                cid:data
+            }
         })
     },
     //修改猫咪信息

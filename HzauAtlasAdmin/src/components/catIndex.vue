@@ -1,18 +1,11 @@
 <template>
   <AdminHeader />
-  <div class="title">User Manage</div>
-  <div v-if="!dataState">
-    <img src="../assets/loading.gif" class="loading" />
-  </div>
-  <div v-if="dataState">
-    <CatList :list="cat.data"/>
-     <AdminFooter />
-  </div>
- 
+  <div class="title">Cat Manage</div>
+
+  <CatList />
 </template>
 <script>
 import AdminHeader from "@/page/AdminHeader.vue";
-import AdminFooter from "@/page/AdminFooter.vue";
 import CatList from "@/page/CatInfo/CatList.vue";
 import { ref, reactive } from "vue";
 import api from "@/network/api";
@@ -38,18 +31,16 @@ export default {
     });
     return {
       dataState,
-      cat
+      cat,
     };
   },
   components: {
     AdminHeader,
-    AdminFooter,
-    CatList
+    CatList,
   },
 };
 </script>
 <style scoped>
-
 .title {
   width: 100%;
   height: 10vw;
@@ -60,13 +51,5 @@ export default {
   font-size: 50px;
   color: grey;
   font-weight: 300;
-}
-
-.loading {
-  width: 10vw;
-  height: 10vw;
-  position: absolute;
-  left: 45vw;
-  top: 20vw;
 }
 </style>
