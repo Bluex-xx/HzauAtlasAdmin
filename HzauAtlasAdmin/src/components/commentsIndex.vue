@@ -42,6 +42,7 @@ import AdminHeader from "@/page/AdminHeader.vue";
 import { reactive, ref } from "vue";
 import api from "../network/api";
 import { useRouter } from "vue-router";
+import { message } from "ant-design-vue";
 export default {
   setup() {
     let dataState = ref(false);
@@ -58,7 +59,7 @@ export default {
       if (window.confirm("确认要删除吗？")) {
         let res = await api.deleteComment(id);
         if (res.data.msg == "comment delete success") {
-          alert("删除成功");
+          message.success('Delete successfully');
           for (let i of comment.data.data) {
             if (i.id == id) {
               comment.data.data = comment.data.data.filter(
@@ -68,10 +69,10 @@ export default {
           }
         } else if (res.data.message == "token 已过期") {
           localStorage.clear("token");
-          alert("登录过期，请重新登录");
+          message.error('Login expired, please login again');
           router.push("/");
         } else {
-          alert("删除失败");
+          message.error('Delete failed');
         }
       }
     };

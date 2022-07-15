@@ -24,6 +24,7 @@ import AdminHeader from "@/page/AdminHeader.vue";
 import { ref, reactive } from "vue";
 import api from "../network/api";
 import { useRouter } from "vue-router";
+import { message } from "ant-design-vue";
 export default {
   setup() {
     let dataState = ref(false);
@@ -34,7 +35,7 @@ export default {
       dataState.value = true;
       if (response.data.message == "token 已过期") {
         localStorage.clear("token");
-        alert("登录过期，请重新登录");
+        message.error('Login expired, please login again');
         router.push("/");
       } else {
         user.data = response.data.data;

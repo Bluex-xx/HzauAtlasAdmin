@@ -27,6 +27,7 @@ import AdminHeader from "@/page/AdminHeader.vue";
 import api from "../network/api";
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
+import { message } from "ant-design-vue";
 export default {
   setup() {
     let dataState = ref(false);
@@ -36,7 +37,7 @@ export default {
     //获取所有图片，数据初始化
     res.then((response) => {
       if (response.data.message == "token 已过期") {
-        alert("登录过期，请重新登录");
+        message.error('Login expired, please login again');
         router.push("/");
       }
       dataState.value = true;
@@ -47,7 +48,7 @@ export default {
       if (window.confirm("确认删除这张照片吗")) {
         let res = await api.deleteCatPhoto(pid);
         if (res.data.msg == "delete cat photo success") {
-          alert("删除成功");
+          message.success('Delete successfully');
           for (let i of photo.data.data) {
             if (i.pid == pid) {
               photo.data.data = photo.data.data.filter(
@@ -57,10 +58,10 @@ export default {
           }
         } else if (res.data.message == "token 已过期") {
           localStorage.clear("token");
-          alert("登陆过期，请重新登录");
+          message.error('Login expired, please login again')
           router.push("/");
         } else {
-          alert("删除失败");
+          message.error('Delete successful');
         }
       }
     };

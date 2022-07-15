@@ -1,39 +1,12 @@
 <template>
   <AdminHeader />
   <div class="title">Cat Manage</div>
-
   <CatList />
 </template>
 <script>
 import AdminHeader from "@/page/AdminHeader.vue";
 import CatList from "@/page/CatInfo/CatList.vue";
-import { ref, reactive } from "vue";
-import api from "@/network/api";
-import { useRouter } from "vue-router";
 export default {
-  setup() {
-    let dataState = ref(false);
-    const router = useRouter();
-    //获取所有猫咪数据
-    let cat = reactive({});
-    let res = api.getAllCat();
-    res.then((response) => {
-      if (response.data.message == "token 已过期") {
-        alert("登录已过期，请重新登录");
-        router.push("/");
-      } else {
-        dataState.value = true;
-        cat.data = response.data.data;
-        for (let i = 0; i < cat.data.length; i++) {
-          cat.data[i].photo = cat.data[i].photo[0].store;
-        }
-      }
-    });
-    return {
-      dataState,
-      cat,
-    };
-  },
   components: {
     AdminHeader,
     CatList,

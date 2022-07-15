@@ -39,6 +39,7 @@
 import api from "../network/api";
 import { reactive } from "@vue/reactivity";
 import {  useRouter } from "vue-router";
+import { message } from "ant-design-vue";
 export default {
   setup() {
     const router = useRouter();
@@ -54,11 +55,11 @@ export default {
     const login = async () => {
       let res = await api.login(user);
       if (res.data.msg === "success") {
-        alert("登录成功");
+        message.success('Login successfully')
         localStorage.setItem("token", res.data.token);
         router.push('/index');
       } else {
-        alert(res.data.msg);
+        message.error(res.data.msg);
       }
     };
     return {

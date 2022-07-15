@@ -17,7 +17,5 @@ export default {};
   color: grey;
   font-size: 16px;
   margin-top: 3vw;
-  position: fixed;
-  bottom: 0;
 }
 </style>
