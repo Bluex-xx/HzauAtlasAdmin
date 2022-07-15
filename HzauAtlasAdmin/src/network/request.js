@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '../router/main'
 export default function request(config) {
   const instance = axios.create({
-    baseURL: 'http://api.codexx.cc:9000',
+    baseURL: 'http://localhost:9000',//填写node服务部署的服务器地址，端口默认为9000
     timeout: 20000,
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
