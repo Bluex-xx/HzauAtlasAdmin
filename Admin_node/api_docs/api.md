@@ -9,7 +9,7 @@
 - Mysql
 
 
-base url:http://api.codexx.cc:9000
+base url:127.0.0.1:9000
 
 > ## API 详情
 
