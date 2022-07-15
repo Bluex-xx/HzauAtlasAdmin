@@ -13,7 +13,7 @@
     <div class="cat_content">
       <div class="cat_list">
         <div class="cat_one" v-for="(i, index) in cat.data" :key="index">
-          <img :src="i.photo" class="cat_pic" />
+          <img :src="i.photo[0].store" class="cat_pic" />
           <div class="detail_button" @click="showDrawer(i)">
             {{ i.name }}
           </div>
@@ -203,7 +203,9 @@ export default {
     let dataState = ref(false);
     const router = useRouter();
     //获取所有猫咪数据
-    let cat = reactive({});
+    let cat = reactive({
+      data:[]
+    });
     let init = () => {
       let res = api.getAllCat();
       res.then((response) => {
@@ -215,9 +217,6 @@ export default {
           cat.data = response.data.data;
           let Cat_length = cat.data.length;
           edit_cat.cid = cat.data[Cat_length - 1].cid + 1;
-          for (let i = 0; i < Cat_length; i++) {
-            cat.data[i].photo = cat.data[i].photo[0].store;
-          }
         }
       });
     };

@@ -15,7 +15,7 @@
     <div class="cat_content">
       <div class="cat_list">
         <div class="cat_one" v-for="(i, index) in flower.data" :key="index">
-          <img :src="i.photo" class="cat_pic" />
+          <img :src="i.photo[0].store" class="cat_pic" />
           <div class="detail_button" @click="showDrawer(i)">
             {{ i.name }}
           </div>
@@ -234,9 +234,6 @@ export default {
           edit_flower.fid = flower.data[Cat_length - 1].fid + 1;
         }
       });
-      for (let i = 0; i < flower.data.length; i++) {
-        flower.data[i].photo = flower.data[i].photo[0].store;
-      }
     };
     init();
     return {
