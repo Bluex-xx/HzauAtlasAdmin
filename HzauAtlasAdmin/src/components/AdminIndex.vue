@@ -3,7 +3,7 @@
     <AdminHeader />
   </div>
   <div class="bg">
-      Admin index
+      Hzau Atlas Admin
   </div>
   <img v-if="!dataState" class="loading" src="../assets/loading.gif" />
 
@@ -118,9 +118,10 @@ export default {
   align-items: center;
   font-size: 3vw;
   height: 13vw;
-  font-weight: 600;
-  color: rgb(241, 238, 238);
+  font-weight: 300;
+  color: rgba(90, 87, 91, 0.564);
   background: url(../assets/images/bg.jpg);
+  border-radius: 0 0 3vw 3vw;
 }
 .sum_one {
   width: 10vw;

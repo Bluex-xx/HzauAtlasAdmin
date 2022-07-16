@@ -113,7 +113,7 @@
     <br />
     <a-alert message="请填写所有信息后，添加数据" type="warning" show-icon />
     <br />
-    <a-button type="primary" @click="addFlower">Add Cat</a-button>
+    <a-button type="primary" @click="addFlower">Add Flower</a-button>
   </a-drawer>
   <a-back-top />
   <strong style="color: rgba(64, 64, 64, 0.6)"></strong>

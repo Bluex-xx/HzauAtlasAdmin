@@ -44,7 +44,8 @@
     <br />
     出没地点
     <a-textarea v-model:value="edit_cat.place" show-count :maxlength="50" />
-
+    <cat-photo :photo="edit_cat"/>
+    
     <a-upload
       v-model:file-list="fileList"
       name="file"
@@ -113,6 +114,7 @@ import { reactive, ref } from "vue";
 import { message } from "ant-design-vue";
 import { useRouter } from "vue-router";
 import api from "@/network/api";
+import CatPhoto from "./catDetailPhotos.vue";
 export default {
   setup() {
     let edit_cat = reactive({
@@ -239,6 +241,9 @@ export default {
       showAdd,
     };
   },
+  components:{
+    CatPhoto
+  }
 };
 </script>
 <style scoped>
