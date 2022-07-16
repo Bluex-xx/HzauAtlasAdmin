@@ -1,4 +1,4 @@
-# 狮山图鉴小程序后台管理系统
+# Hzau Atlas Admin（猫咪图鉴的后台管理系统）
 
 > ## 基于
 >
@@ -118,3 +118,19 @@ npm start
 ```
 
 > 本地测试完毕打包上传即可，具体可 Google , 关键词 Vue 项目部署 , Node部署
+
+### 数据库
+
+数据库需自行添加相关表以及字段
+
+相关的数据表如下
+
+| 表名    | 存储的信息     | 相关的字段                                            |
+| ------- | -------------- | ----------------------------------------------------- |
+| cat     | 存储猫咪信息   | name;cid;color;place;character1;liked;                |
+| comment | 存储评论信息   | cid;fid;content;uid;date;id;                          |
+| flower  | 存储花朵信息   | fid;name;florescence;department;allegory;liked;color; |
+| picture | 存储图片信息   | pid;fid;cid;store;liked;name;                         |
+| user    | 存储用户信息   | openid;profile_photo;name;uid;                        |
+| users   | 存储后台管理员 | account;password;                                     |
+
