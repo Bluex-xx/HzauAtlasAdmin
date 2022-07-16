@@ -2,7 +2,7 @@
 
 > ## 基于
 >
-> ## 前端：Vue3 .x+ Ant Design vue
+> ## 前端：Vue3.x + Ant Design Vue
 >
 > ## 后端：NodeJs + Koa2 + Mysql
 >
